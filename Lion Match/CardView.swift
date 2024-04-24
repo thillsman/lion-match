@@ -17,17 +17,20 @@ struct CardView: View {
                 Text(card.emoji)
                     .font(.largeTitle)
                     .scaleEffect(2.5)
-                    .opacity(card.state != .faceUp ? 0 : 1)
+                    .opacity(card.state == .faceUp ? 1 : 0)
                     .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
             }
-            .foregroundColor(card.state != .faceUp ? card.color : .white)
+            .foregroundColor(card.state == .faceUp ? .white : card.color)
             .opacity(card.state == .matched ? 0.2 : 1.0)
-            .disabled(true)
             .cornerRadius(10)
             .frame(width: 140, height: 200)
             .shadow(color: .gray, radius: 10)
             .onTapGesture {
-                card.state = card.state == .faceDown ? .faceUp : .faceDown
+                if card.state == .faceDown {
+                    card.state = .faceUp
+                } else if card.state == .faceUp {
+                    card.state = .faceDown
+                }
             }
             .rotation3DEffect(.degrees(card.state == .faceDown ? 0 : 180), axis: (x: 0, y: 1, z: 0))
             .animation(.default, value: card.state)
