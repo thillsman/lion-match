@@ -16,6 +16,7 @@ struct ContentView: View {
         VStack {
             HStack {
                 Text(viewModel.scoreLabel)
+                    .bold()
                 
                 Spacer()
                 
@@ -24,6 +25,7 @@ struct ContentView: View {
                 } label: {
                     Text("New game")
                 }
+                .buttonStyle(.borderedProminent)
             }
             .overlay {
                 Text(viewModel.message)
