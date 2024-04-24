@@ -11,8 +11,8 @@ import Observation
 
 @Observable class ViewModel {
     
-    let emoji = ["✅", "💪🏼", "🙅🏼‍♂️", "🚂", "🙈"] // 10
-    let colors = [Color.blue, .red, .yellow, .green]
+    let emoji: [String] = []
+    let colors: [Color] = []
 
     var message = ""
     var score = 0 {
@@ -37,14 +37,14 @@ import Observation
         let faceUpCards = findFaceUpCards(cards)
         if faceUpCards.count == 2 {
             if doFaceUpCardsMatch(faceUpCards) {
-                message = "It's a match!"
-                score += 1
-                let newCards = changeFaceUpCards(cards, to: .matched)
-                updateCards(to: newCards, inSeconds: 2)
+//                message = "It's a match!"
+//                score += 1
+//                let newCards = changeFaceUpCards(cards, to: .matched)
+//                updateCards(to: newCards, inSeconds: 2)
             } else {
-                message = "Try again"
-                let newCards = changeFaceUpCards(cards, to: .faceDown)
-                updateCards(to: newCards, inSeconds: 2)
+//                message = "Try again"
+//                let newCards = changeFaceUpCards(cards, to: .faceDown)
+//                updateCards(to: newCards, inSeconds: 2)
             }
         }
     }
